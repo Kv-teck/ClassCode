@@ -1,0 +1,79 @@
+svg {
+    width: 12px;
+    height: 12px;
+    padding-right: 5px;
+    
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+#T2 {
+    display: flex;
+}
+
+#T2 p {
+    font-size: 14px;
+    padding-right: 20px;
+}
+
+#T3 {
+    display: flex;
+}
+
+#T3 p {
+    font-size: 14px;
+    padding-right: 20px;
+}
+
+#T6 {
+    display: flex;
+    justify-content: right;
+    border-left: 10px;
+    float: right;
+    flex-direction: column; /* Xếp các phần tử con theo chiều dọc */
+    align-items: flex-end; /* Căn chỉnh các phần tử con về phía dưới */
+    
+}
+
+img {
+    width: 230px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+    
+
+}
+
+#T4 {
+    width: 200px;
+    background-color: rgba(215, 221, 221, 0.781);
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 30px;
+    
+}
+
+#T5 {
+    width: 200px;
+    background-color: rgba(215, 221, 221, 0.781);
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+
+#TT{
+    
+    float: left;
+    padding-right: 30%;
+}
+#TR{
+    padding-top: 5px;
+}
