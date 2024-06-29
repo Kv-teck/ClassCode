@@ -37,7 +37,7 @@ li {
 }
 
 .header {
-    background-image: url(/TechStack2405/images/b5/background-header.jpg);
+    background-image: url(../images/b5/background-header.jpg);
     background-size: cover;
     height: 550px;
     /* margin-bottom: 50px; */
@@ -205,7 +205,7 @@ li {
 }
 
 .bg-enjoy{
-    background-image: url(/TechStack2405/images/b5/enjoy.jpg);
+    background-image: url(../images/b5/enjoy.jpg);
     background-size: cover;
     padding-top: 30%;
     padding-bottom: 5%;
