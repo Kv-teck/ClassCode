@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+.section {
+    float: left;
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    max-width: 100%;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.color {
+    color: aliceblue;
+}
+
+.float-left {
+    float: left;
+}
+
+.padding {
+    padding: 15px;
+}
+
+.start {
+    background-color: antiquewhite;
+}
+
+.header {
+    background-color: rgb(14, 90, 65);
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.header h2 {
+    margin-top: 5px;
+}
+
+.iconlink {
+    width: 20px;
+    padding: 10px;
+    fill: aliceblue;
+}
+
+.header-icon {
+    float: right;
+}
+
+.header-icon .float-left :hover {
+    background-color: rgb(8, 51, 29);
+    border-radius: 10px;
+}
+
+
+.small {
+    float: left;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.get {
+    width: 200px;
+    background-color: rgb(14, 90, 65);
+    text-align: center;
+    border-radius: 30px;
+    padding: 6px;
+}
+
+.get svg {
+    width: 20px;
+    float: left;
+    padding: 5px;
+    fill: aliceblue;
+}
+
+.get h2 {
+    margin-left: 40px;
+    background-color: aliceblue;
+    border-radius: 30px;
+    color: rgb(14, 90, 65);
+
+}
+
+.small h1 {
+    font-size: 100px;
+    color: rgb(14, 90, 65);
+
+}
+
+.about a{
+    float: left;
+    margin-top: 20px;
+    background-color: rgb(14, 90, 65);
+    /* width: 100px; */
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: aliceblue;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.about .read{
+    background-color: yellow;
+    color: black;
+    margin-left: 30px;
+}
+
+.start .ha1 {
+    width: 350px;
+    height: 450px;
+    float: right;
+    border-radius: 20px;
+    margin-top: 7%;
+}
+
+.mana-pro{
+    background-color: rgb(14, 90, 65);
+    /* padding: 50px; */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.management{
+    width: 40%;
+    background-color: rgb(0, 49, 21);
+    margin: 10px;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+.management h2{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 500;}
+
+.promotion{
+    float: right;
+}
+
+.branad{
+    width: 15%;
+    background-color: rgb(0, 49, 21);
+    margin: 10px;
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
