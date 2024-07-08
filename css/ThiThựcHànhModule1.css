@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+.section {
+    float: left;
+    width: 100%;
+}
+
+.container {
+    width: 1200px;
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+li {
+    list-style: none;
+}
+
+.header {
+    margin-top: 30px;
+    /* background-image: url('../images/ThiThựcHànhModule1/hamburg-8807295_1920.jpg');
+    background-size: cover; */
+}
+
+.header h1 {
+    float: left;
+    color: rgb(196, 156, 48);
+    font-weight: 400;
+    padding: 10px;
+}
+
+.header .h-a-b-c {
+    float: right;
+}
+
+.header a {
+    float: left;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: black;
+    text-decoration: none;
+}
+
+.header .h-a-b-c :hover {
+    background-color: rgb(196, 156, 48);
+    color: aliceblue;
+    border-radius: 10px;
+}
+
+.header img {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
+    background-image: url('../images/ThiThựcHànhModule1/hamburg-8807295_1920.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Đặt ảnh nền ở giữa */
+}
+
+.introduction {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.introduction h2 {
+    color: rgb(196, 156, 48);
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.introduction p {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.lorem-ipsum {
+    width: 22%;
+    float: left;
+    margin-top: 50px;
+    margin-right: 3%;
+}
+
+.lorem-ipsum img {
+    width: 100%;
+    height: 150px;
+}
+
+.lorem-ipsum h3 {
+    margin-top: 20px;
+    color: rgb(196, 156, 48);
+}
+
+.lorem-ipsum p {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.lorem-ipsum a {
+    background-color: rgb(196, 156, 48);
+    color: aliceblue;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+
+.pellentesque {
+    width: 50%;
+    /* margin-top: 100px; */
+    float: left;
+}
+
+.pellentesque h3 {
+    margin-bottom: 20px;
+    color: rgb(196, 156, 48);
+}
+
+.pellentesque img {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.pellentesque p {
+    margin-bottom: 30px;
+    padding-right: 10%;
+}
+
+.pellentesque a {
+    background-color: rgb(196, 156, 48);
+    text-decoration: none;
+    color: aliceblue;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.cate-use-related {
+    width: 50%;
+    float: right;
+}
+
+.cate-use {
+    width: 50%;
+    float: left;
+
+}
+
+.cate-use h3 {
+    margin-bottom: 30px;
+    color: rgb(196, 156, 48);
+}
+
+.cate-use li {
+    margin-bottom: 20px;
+}
+
+.cate-use li a {
+    color: rgb(36, 151, 151);
+}
+
+.related {
+    width: 100%;
+    float: left;
+}
+
+.related h3 {
+    color: rgb(196, 156, 48);
+    margin-top: 50px;
+}
+
+.related-lorem {
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.related-lorem img {
+    width: 32%;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.related-lorem h4 {
+    margin-bottom: 20px;
+    color: rgb(196, 156, 48);
+}
+
+.related-lorem p {
+    margin-bottom: 30px;
+}
+
+.bg-proin-null-eti-fusce{
+    background-image: url('../images/ThiThựcHànhModule1/bg-proin-null-eti-fusce.jpg');
+    background-size: cover;
+    /* height: 750px; */
+}
+
+.proin-null-eti-fusce{
+    width: 23%;
+    float: left;
+    color: aliceblue;
+    margin-top: 50px;
+    margin-right: 2%;
+    /* margin-bottom: 20%; */
+}
+
+.proin-null-eti-fusce h3{
+    color: rgb(196, 156, 48);
+    margin-bottom: 30px;
+}
+
+.proin-bg{
+    max-width: 100%;
+    background-color: aliceblue;
+    color: black;
+    padding: 20px;
+}
+
+.proin-bg p{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.proin-null-eti-fusce li{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.proin-null-eti-fusce li a{
+    color: rgb(226, 201, 59);
+}
+
+.proin-null-eti-fusce p{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.proin-null-eti-fusce .image img{
+    width: 89px;
+    height: 89px;
+}
+
+.proin-null-eti-fusce .read{
+    text-decoration: none;
+    background-color: grey;
+    color: aliceblue;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+
+.copyright{
+    /* text-align: left; */
+    color: aliceblue;
+    margin-top: 100%;
+}
