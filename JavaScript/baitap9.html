@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTVN buổi 9</title>
+</head>
+
+<body>
+    <script>
+        // Xây dựng game Vietlot với các yêu cầu sau:
+        // 1. Hệ thống sinh ngẫu nhiên bộ 6 số khác nhau từ 0 → 55
+        // 2. Người chơi sẽ mua vé số lựa chọn 6 số khác nhau từ 0 →55
+        // 3. Kỳ quay sẽ kiểm tra giải thưởng: Chỉ cần trùng số lượng theo 2 bộ số ở trên thì sẽ nhận giải tương ứng. Ví dụ:
+        // - Trúng 3 số: 100K
+        // - Trúng 4 số: 1M
+        // - Trúng 5 số: 10M
+        // - Trúng 6 số: Jackpot 10 tỷ.
+
+        //số ngẫu nhiên
+        var randoms = [];
+        while (randoms.length < 6) {
+            var r = parseInt(Math.random() * 56);
+            randoms.push(r);
+        }
+
+        //ng chơi nhập 6 số
+        var player = [];
+        while (player.length < 6) {
+            var playerGuess = parseInt(prompt('Nhập số bạn dự đoán (từ 0 đến 55):'));
+            if (!isNaN(playerGuess) && playerGuess >= 0 && playerGuess <= 55 && !player.includes(playerGuess)) {
+                player.push(playerGuess);
+            } else {
+                alert('Số đã được chọn hoặc không hợp lệ. Vui lòng chọn lại!');
+            }
+        }
+
+        // Kiểm tra số lượng số trùng khớp
+        var winNumbers = randoms;
+        var matchedCount = 0;
+        for (let i = 0; i < player.length; i++) {
+            if (winNumbers.includes(player[i])) {
+                matchedCount++;
+            }
+        }
+
+        // Xác định giải thưởng dựa trên số lượng số trùng khớp
+        var prize = '';
+        switch (matchedCount) {
+            case 3:
+                prize = '100K';
+                break;
+            case 4:
+                prize = '1M';
+                break;
+            case 5:
+                prize = '10M';
+                break;
+            case 6:
+                prize = 'Jackpot 10 tỷ';
+                break;
+            default:
+                prize = 'Không trúng giải';
+                break;
+        }
+
+        // Hiển thị kết quả cho người chơi
+        alert(`Số ngẫu nhiên của kỳ quay là: ${winNumbers.join(', ')}`);
+        alert(`Số bạn chọn là: ${player.join(', ')}`);
+        alert(`Bạn đã trúng ${matchedCount} số. Giải thưởng của bạn là: ${prize}`);
+    </script>
+</body>
+
+</html>
