@@ -1,7 +1,7 @@
 
 function demnguoc(phut, giay){
     var tongGiay = phut * 60 + giay;
-    console.log(`Thời gian ban đầu: ${phut} phút ${giay} giây`);
+    console.log(`Thời gian: ${phut} phút ${giay} giây`);
     var demNgung = setInterval(function () {
         var phutConLai = Math.floor(tongGiay / 60);
         var giayConLai = tongGiay % 60;
