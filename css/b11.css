@@ -1,0 +1,11 @@
+
+#fan {
+    margin: 50px;
+    width: 450px;
+    height: 450px;
+    /* background-color: orange; */
+    /* transition: transform 0.5s; */
+    background-image: url('../images/b11/quat.jpg');
+    background-size: 450px;
+    border-radius: 50%;
+}

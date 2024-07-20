@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTVN buổi 11</title>
+    <link rel="stylesheet" href="css/b11.css">
+</head>
+<body>
+    <div id="fan">
+    </div>
+    <button id="btnOn" onclick="onFan()">OFF</button>
+    <button id="btn1" onclick="oneFan()">1</button>
+    <button id="btn2" onclick="twoFan()">2</button>
+    <button id="btn3" onclick="threeFan()">3</button>
+    <script>
+        var speed = 0;
+        var rotation = 0;
+        var f = setInterval(function () {
+            var fan = document.getElementById("fan");
+            fan.style.transform = `rotate(${rotation}deg)`;
+            rotation += speed;
+            if (rotation == 360) {
+                rotation = 0;
+            }
+        }, 10);
+
+        function onFan() {
+            speed = 0;
+        }
+
+        function oneFan() {
+            speed = 5;
+        }
+        function twoFan() {
+            speed = 10;
+        }
+        function threeFan() {
+            speed = 20;
+        }
+    </script>
+</body>
+</html>
