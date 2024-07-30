@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login interface</title>
+    <link rel="stylesheet" href="css/BTlogin.css">
+</head>
+
+<body>
+    <div class="home-container">
+        <h1>Giao Diện Đăng Nhập</h1>
+        <button id="loginButton">Login</button>
+    </div>
+    <div class="login-container" style="display: none;">
+        <h2>Đăng nhập</h2>
+        <form action="#" method="post" id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <p id="emailFeedback"></p>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+                <p id="passwordFeedback" style="margin-top: 5px;"></p>
+            </div>
+            <a href="#" style="float: right; margin-bottom: 10px;">Forgot Password?</a>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginButton').addEventListener('click', function () {
+            var homeContainers = document.getElementsByClassName('home-container');
+            var loginContainers = document.getElementsByClassName('login-container');
+
+            for (var i = 0; i < homeContainers.length; i++) {
+                homeContainers[i].style.display = 'none';
+            }
+
+            for (var j = 0; j < loginContainers.length; j++) {
+                loginContainers[j].style.display = 'block';
+            }
+        });
+
+        document.getElementById('email').addEventListener('keyup', function () {
+            var email = this.value;
+            var feedback = document.getElementById('emailFeedback');
+
+            // Biểu thức chính quy để kiểm tra định dạng email
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+
+            if (!emailPattern.test(email)) { //điều kiện kiểm tra xem giá trị của ô nhập email có khớp với biểu thức chính quy hay không. 
+                feedback.textContent = "Vui lòng nhập địa chỉ email hợp lệ";
+                feedback.style.color = 'red'; 
+            } else {
+                feedback.textContent = "Email hợp lệ";
+                feedback.style.color = 'green';
+            }
+        });
+
+        document.getElementById('password').addEventListener('keyup', function () {
+            var pass = this.value;
+            var color = document.getElementById('passwordFeedback');
+            if (pass.length < 6) { 
+                console.log("Vui lòng đặt Password 6 ký tự");
+                color.textContent = "Vui lòng đặt Password 6 ký tự";
+                color.style.color = 'red';
+            } else {
+                console.log("Password hợp lệ");
+                color.textContent = "Password hợp lệ";
+                color.style.color = 'green';
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
