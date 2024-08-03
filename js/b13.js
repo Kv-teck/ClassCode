@@ -10,10 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         var city = searchInput.value.trim();
         if (city) {
             getWeatherData(city);
-            var loginContainer = document.querySelector('.container');
-            if (loginContainer) {
-                loginContainer.style.display = 'block';
-            }
         } else {
             alert('Please enter a city name.');
         }
