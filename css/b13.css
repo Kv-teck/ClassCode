@@ -1,0 +1,54 @@
+/* General styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../images/b13/hinh-nen-powerpoint-mau-xanh-duong-2.jpg);
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; */
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* Khoảng cách giữa các hình ảnh */
+    padding: 50px;
+}
+
+.weather-container {
+    background-color: #4264fa80;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    padding: 25px;
+
+    flex: 1 1 calc(25% - 10px);
+    /* Chiếm 25% chiều rộng trừ khoảng cách */
+    max-width: calc(25% - 0px);
+    /* Đảm bảo kích thước hình ảnh không vượt quá 25% */
+    box-sizing: border-box;
+    /* object-fit: cover; */
+    /* Đảm bảo hình ảnh không bị méo */
+    /* background: transparent; */
+}
+
+.date {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.weather-icon {
+    width: 100px;
+    height: 100px;
+    float: right;
+    margin-top: -120px;
+}
+
+.temperature {
+    font-size: 3em;
+    margin: 10px 0;
+}
