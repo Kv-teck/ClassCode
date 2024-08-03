@@ -14,19 +14,13 @@
     để xây dựng giao diện -->
     <script src="js/b13.js"></script>
 
-    <div class="container" id="weather-container">
-        <div class="weather-container">
-            <p class="data"></p>
-            <p class="temperature"></p>
-            <p class="weather-main"></p>
-            <img class="weather-icon" src="" alt="">
-        </div>
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Enter city name" aria-label="City name">
+        <button id="searchButton">Search</button>
     </div>
-
-    <script>
-        // Example usage
-        getWeatherData("Hà Nội");
-    </script>
+    <div class="container">
+        <div  class="weather-container" id="weather-container"></div>
+    </div>
 
 </body>
 
