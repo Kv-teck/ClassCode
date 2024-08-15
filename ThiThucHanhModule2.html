@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thi thực hành Module 2 (Javascript)</title>
+    <link rel="stylesheet" href="css/module2.css">
+</head>
+
+<body>
+    <!-- Xây dưng giao diện kèm chức năng với Javascript cho yêu cầu sau:
+
+    1. Bên trái là danh sách
+
+    2. Khi nhấn vào 1 loại bên trái sẽ hiển thị các image của nó bên phải
+
+    3. Dữ liệu lưu trong Local Storage
+
+    4. Có thể sử dụng Bootstrap để tạo giao diện tốt hơn
+
+    Link thiết kế
+
+    https://lh3.googleusercontent.com/giZtnMxeuuVJB_PzeKuyEaFOAmJ7g1IGvgdthAT5fbXbUYcZKguek7xx7oHhbhcOrLXkJwzaRGrkm4aeMcosyEaRymBraXN7_DhZeRofCMsjqV0Vqw=w1064-v0 -->
+
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Photos</h2>
+            <ul>
+                <li class="active">Kiwis</li>
+                <li>Lemons</li>
+                <li>Strawberries</li>
+                <li>Figs</li>
+                <li>Nectarines</li>
+                <li>Watermelons</li>
+            </ul>
+        </aside>
+        <main class="content">
+            <header>
+                <h2>Kiwis</h2>
+            </header>
+            <section class="photos">
+                <!-- <img src="images/kiwi1.jpg" alt="Kiwis">
+                <img src="images/kiwi2.jpg" alt="Kiwis">
+                <img src="images/kiwi3.jpg" alt="Kiwis"> -->
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Dữ liệu danh mục và hình ảnh
+        const products = {
+            "Kiwis": ["images/kiwi1.jpg", "images/kiwi2.jpg", "images/kiwi3.jpg"],
+            "Lemons": ["images/lemon1.jpg", "images/lemon2.jpg", "images/lemon3.jpg"],
+            "Strawberries": ["images/Strawberries1.jpg", "images/Strawberries2.jpg", "images/Strawberries3.jpg"],
+            "Figs": ["images/Figs1.jpg", "images/Figs2.jpg", "images/Figs3.jpg"],
+            "Nectarines": ["images/Nectarines1.jpg", "images/Nectarines2.jpg", "images/Nectarines3.jpg"],
+            "Watermelons": ["images/Watermelons1.jpg", "images/Watermelons2.jpg", "images/Watermelons3.jpg"],
+        };
+        // console.log(products);
+        // Chuyển đổi đối tượng products thành chuỗi và lưu vào localStorage
+        data = JSON.stringify(products);
+        localStorage.setItem("products", data);
+
+        // Hàm này dùng để hiển thị danh sách các loại trái cây bên trái màn hình.
+        function populateSidebar() {
+            // Bước 1: Lấy dữ liệu từ localStorage, đây là nơi chúng ta đã lưu thông tin về các loại trái cây.
+            var data = localStorage.getItem("products"); // Lấy dữ liệu từ localStorage.
+            data = JSON.parse(data); // Chuyển dữ liệu từ dạng chuỗi sang dạng đối tượng JavaScript để dễ sử dụng.
+
+            // Bước 2: Chọn phần danh sách (ul) trong sidebar, nơi chúng ta sẽ thêm các loại trái cây.
+            var list = document.querySelector('.sidebar ul'); // Chọn phần tử <ul> trong sidebar.
+            list.innerHTML = ``; // Xóa nội dung cũ trong danh sách để sẵn sàng thêm mới.
+
+            // Bước 3: Kiểm tra nếu có dữ liệu, chúng ta sẽ thêm từng loại trái cây vào danh sách.
+            if (data != null) {
+                for (var category in data) { // Duyệt qua từng loại trái cây trong dữ liệu.
+                    var item_html = `<li>${category}</li>`; // Tạo một mục danh sách <li> với tên loại trái cây.
+                    list.innerHTML += item_html; // Thêm mục này vào danh sách trong HTML.
+                }
+            }
+
+            // Bước 4: Làm nổi bật mục đầu tiên trong danh sách và hiển thị hình ảnh của nó.
+            const firstItem = list.querySelector('li'); // Chọn mục <li> đầu tiên trong danh sách.
+            if (firstItem) {
+                firstItem.classList.add('active'); // Thêm lớp "active" để làm nổi bật mục này.
+                displayImages(firstItem.textContent); // Hiển thị hình ảnh tương ứng với loại trái cây này.
+            }
+
+            // Bước 5: Thêm chức năng click cho mỗi mục trong danh sách.
+            const listItems = list.querySelectorAll('li'); // Chọn tất cả các mục <li> trong danh sách.
+            listItems.forEach(item => {
+                item.addEventListener('click', function () { // Khi người dùng nhấn vào một mục:
+                    listItems.forEach(li => li.classList.remove('active')); // Bỏ lớp "active" khỏi tất cả các mục.
+                    this.classList.add('active'); // Thêm lớp "active" vào mục được nhấn.
+                    displayImages(this.textContent); // Hiển thị hình ảnh tương ứng với loại trái cây này.
+                });
+            });
+        }
+
+        // Hàm này dùng để hiển thị hình ảnh của loại trái cây được chọn.
+        function displayImages(category) {
+            // Bước 1: Lấy dữ liệu hình ảnh từ localStorage.
+            var data = JSON.parse(localStorage.getItem("products")); // Lấy dữ liệu từ localStorage.
+            var images = data[category]; // Lấy danh sách hình ảnh của loại trái cây được chọn.
+
+            // Bước 2: Chọn phần nơi sẽ hiển thị các hình ảnh.
+            var photosSection = document.querySelector('.photos'); // Chọn phần <section> chứa hình ảnh.
+            photosSection.innerHTML = ''; // Xóa tất cả hình ảnh cũ trước khi thêm mới.
+
+            // Bước 3: Thêm từng hình ảnh vào phần hiển thị.
+            images.forEach(src => { // Duyệt qua từng hình ảnh trong danh sách.
+                var img = document.createElement('img'); // Tạo một thẻ <img> mới.
+                img.src = src; // Đặt đường dẫn hình ảnh cho thẻ <img>.
+                img.alt = category; // Đặt chú thích cho hình ảnh.
+                photosSection.appendChild(img); // Thêm thẻ <img> vào phần <section>.
+            });
+
+            // Bước 4: Cập nhật tiêu đề với tên của loại trái cây được chọn.
+            var header = document.querySelector('main header h2'); // Chọn thẻ <h2> trong phần chính.
+            header.textContent = category; // Đổi nội dung của thẻ <h2> thành tên loại trái cây.
+        }
+
+        // Gọi hàm populateSidebar để hiển thị danh sách khi trang web được tải.
+        populateSidebar();
+    </script>
+</body>
+
+</html>
