@@ -38,7 +38,7 @@ const Fan = () => {
                 </div>
             </div>
 
-            <div className="container containerSurvey mt-5">
+            <div className="container mt-5">
                 <div className="card p-4 shadow-sm">
                     <h1 className="text-center">Customer Survey</h1>
                     <p className="text-center">Thank you for shopping with us! Please take a few minutes to rate us so we can serve you better.</p>
