@@ -23,7 +23,7 @@ const NavBar = () => {
                                 <Link to="/blog" className="dropdown-item">Blog Grid</Link>
                                 <Link to="/out-features" className="dropdown-item">Our Features</Link>
                                 <Link to="/testimonial" className="dropdown-item">Testimonial</Link>
-                                <Link to="" className="dropdown-item">404 Page</Link>
+                                <Link to="/fan" className="dropdown-item">Fan</Link>
                             </div>
                         </div>
                         <Link to="/contact-us" className="nav-item nav-link">Contact Us</Link>

@@ -10,6 +10,8 @@ import Blog from './pages/Blog';
 import Feature from './pages/Feature';
 import Testimonial from './pages/Testimonial';
 import ContactUs from './pages/ContactUs';
+import Fan from './pages/Fan';
+
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
           <Route path='/out-features' Component={Feature} />
           <Route path='/testimonial' Component={Testimonial} />
           <Route path='/contact-us' Component={ContactUs} />
+          <Route path='/fan' Component={Fan} />
         </Routes>
       </main>
       <Footer />
