@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
 import TopLink from "./TopLink";
+import { useEffect, useState } from "react";
 
 const NavBar = () => {
+    const [categories,setCategories] = useState([]);
+    const getCategories = async ()=>{
+        const rs = await fetch("https://dummyjson.com/products/categories");
+        const data = await rs.json();
+        setCategories(data);
+    }
+    useEffect(()=>{
+        getCategories();
+    },[]);
     return (
         <div className="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
-            <TopLink/>
+            <TopLink />
             <nav className="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
                 <Link to="/" className="navbar-brand ms-4 ms-lg-0">
                     <h1 className="fw-bold text-primary m-0">F<span className="text-secondary">oo</span>dy</h1>
@@ -17,8 +27,13 @@ const NavBar = () => {
                         <Link to="/" className="nav-item nav-link active">Home</Link>
                         <Link to="/about-us" className="nav-item nav-link">About Us</Link>
                         <Link to="/product" className="nav-item nav-link">Products</Link>
+                        {
+                            categories.map((item, key) => {
+                                return <Link key={key} to={"/category/" + item.slug} className="nav-item nav-link">{item.name}</Link>
+                            })
+                        }
                         <div className="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                             <div className="dropdown-menu m-0">
                                 <Link to="/blog" className="dropdown-item">Blog Grid</Link>
                                 <Link to="/out-features" className="dropdown-item">Our Features</Link>

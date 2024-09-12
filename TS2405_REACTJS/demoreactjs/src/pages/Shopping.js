@@ -1,9 +1,11 @@
 import { Field, Formik } from 'formik';
 import React, { useState } from 'react';
 import { Form, Button, Row, Col, Container, FormGroup } from 'react-bootstrap';
+import PhoneInput from 'react-phone-number-input'
+import '../assets/css/Phone.css'
 
 const Shopping = () => {
-
+    const [value, setValue] = useState('');
 
     return (
         <>
@@ -25,11 +27,60 @@ const Shopping = () => {
                     <Col>
                         <h2 className="text-start">Customer Information</h2>
                         <Formik>
+                            <Form>
+                                <Form.Group className="mb-3 text-start">
+                                    <Form.Label>Email</Form.Label>
+                                    <Field
+                                        type="email"
+                                        name="email"
+                                        placeholder="Email address"
+                                        className="form-control"
+                                    />
+                                </Form.Group>
+                                <Row>
+                                    <Col>
+                                        <Form.Group className="mb-3 text-start">
+                                            <Form.Label>First Name</Form.Label>
+                                            <Field
+                                                type="text"
+                                                name="fullname"
+                                                placeholder="First name"
+                                                className="form-control"
+                                            />
+                                        </Form.Group>
+                                    </Col>
+                                    <Col>
+                                        <Form.Group className="mb-3 text-start">
+                                            <Form.Label>Last Name</Form.Label>
+                                            <Field
+                                                type="text"
+                                                name="fullname"
+                                                placeholder="Last name"
+                                                className="form-control"
+                                            />
+                                        </Form.Group>
+                                    </Col>
+                                </Row>
+                                <Form.Group className=" mt-2">
+                                    <PhoneInput
+                                        international
+                                        countryCallingCodeEditable={false}
+                                        defaultCountry="RU"
+                                        value={value}
+                                        onChange={setValue}
+                                         />
+                                </Form.Group>
 
+                                <FormGroup>
+                                    <Button variant="primary" type="submit" className="mt-5 w-100">
+                                        PROCEED TO NEXT STEP
+                                    </Button>
+                                </FormGroup>
+                            </Form>
                         </Formik>
                     </Col>
                     <Col>
-                        
+
                     </Col>
                 </Row>
             </Container>

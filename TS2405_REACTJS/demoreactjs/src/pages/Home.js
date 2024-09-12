@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import HomeAbout from "../components/UI/HomeAbout";
 import HomeBlog from "../components/UI/HomeBlog";
 import HomeCarousel from "../components/UI/HomeCarousel";
@@ -17,103 +18,74 @@ const Home = () => {
 
     const features = [
         {
-            icon:"/img/icon-1.png",
-            label:"Natural Process",
-            text:"Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.",
+            icon: "/img/icon-1.png",
+            label: "Natural Process",
+            text: "Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.",
         },
         {
-            icon:"/img/icon-2.png",
-            label:"Organic Products",
-            text:"Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.",
+            icon: "/img/icon-2.png",
+            label: "Organic Products",
+            text: "Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.",
         },
         {
-            icon:"/img/icon-3.png",
-            label:"Biologically Safe",
-            text:"Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.",
-        },
-    ];
-
-    const products =[
-        {
-            img:"img/product-1.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-2.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-3.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-4.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-5.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-6.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-7.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-8.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
+            icon: "/img/icon-3.png",
+            label: "Biologically Safe",
+            text: "Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed vero dolor duo.",
         },
     ];
 
     const blog = [
         {
-            img:"img/blog-1.jpg",
-            text:"How to cultivate organic fruits and vegetables in own firm",
-            user:"Admin",
-            calendar:"01 Jan, 2045",
+            img: "img/blog-1.jpg",
+            text: "How to cultivate organic fruits and vegetables in own firm",
+            user: "Admin",
+            calendar: "01 Jan, 2045",
         },
         {
-            img:"img/blog-2.jpg",
-            text:"How to cultivate organic fruits and vegetables in own firm",
-            user:"Admin",
-            calendar:"01 Jan, 2045",
+            img: "img/blog-2.jpg",
+            text: "How to cultivate organic fruits and vegetables in own firm",
+            user: "Admin",
+            calendar: "01 Jan, 2045",
         },
         {
-            img:"img/blog-3.jpg",
-            text:"How to cultivate organic fruits and vegetables in own firm",
-            user:"Admin",
-            calendar:"01 Jan, 2045",
+            img: "img/blog-3.jpg",
+            text: "How to cultivate organic fruits and vegetables in own firm",
+            user: "Admin",
+            calendar: "01 Jan, 2045",
         },
     ]
 
+    const [products,setProducts] = useState([]);
+    const getProductsData = async ()=>{
+        const rs = await fetch("https://dummyjson.com/products?limit=12&sortBy=price&order=asc");
+        const data= await rs.json();
+        setProducts(data.products);
+    }
+    const [x,setX] = useState(0);
+    const [y,setY] = useState(0);
+    useEffect(()=>{ // nhiệm vụ: lắng nghe sự thay đổi của state và hành động
+        getProductsData();
+    },[]); // componentDidmount -> chỉ chạy 1 lần duy nhất sau khi build xong giao diện lần đầu
+    useEffect(()=>{
+        console.log("x="+x);
+    },[x]); // lắng nghe sự thay đổi của x --- trigger
+    useEffect(()=>{
+        console.log("y="+y);
+    },[y]); 
+    const changeX = ()=>{ setX(x+1)}
+    const changeY = ()=>{ setY(y+1)}
+
     return (
         <>
+            <button className="btn btn-primary" onClick={changeX}>Change X: {x}</button>
+            <button className="btn btn-primary" onClick={changeY}>Change Y: {y}</button>
             <HomeCarousel />
             <HomeAbout label={about_me} sub_title={desc_txt} list={fas}>Hello world</HomeAbout>
-            <HomeFeature list={features}/>
-            <HomeProduct products={products}/>
+            <HomeFeature list={features} />
+            <HomeProduct products={products} />
             <HomeFirmVisit />
             <HomeTestimonial />
-            <HomeBlog blog={blog}/>
+            <HomeBlog blog={blog} />
         </>
     )
 }

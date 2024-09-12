@@ -13,9 +13,12 @@ import ContactUs from './pages/ContactUs';
 import Fan from './pages/Fan';
 import Regsiter from './pages/Register';
 import Shopping from './pages/Shopping';
+import Category from './pages/Category';
+import ProductDetail from './pages/ProductDetail';
 
 
 function App() {
+
   return (
     <div className="App">
       <NavBar />
@@ -31,6 +34,8 @@ function App() {
           <Route path='/fan' Component={Fan} />
           <Route path='/regsiter' Component={Regsiter} />
           <Route path='/shopping' Component={Shopping} />
+          <Route path='/category/:slug' Component={Category} />
+          <Route path="/product/:id" Component={ProductDetail} />
         </Routes>
       </main>
       <Footer />

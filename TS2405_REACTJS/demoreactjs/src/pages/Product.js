@@ -1,58 +1,28 @@
+import { useEffect, useState } from "react";
 import HomeFirmVisit from "../components/UI/HomeFirmVisit";
 import HomeProduct from "../components/UI/HomeProduct";
 import HomeTestimonial from "../components/UI/HomeTestimonial";
 
 const Product = () => {
-    const products =[
-        {
-            img:"img/product-1.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-2.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-3.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-4.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-5.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-6.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-7.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-        {
-            img:"img/product-8.jpg",
-            name:"Fresh Tomato",
-            old_price: "19.00",
-            price: "29.00",
-        },
-    ];
+    const [products, setProducts] = useState([]);
+    const getProductsData = async () => {
+        const rs = await fetch("https://dummyjson.com/products?limit=12&sortBy=price&order=asc");
+        const data = await rs.json();
+        setProducts(data.products);
+    }
+    const [x, setX] = useState(0);
+    const [y, setY] = useState(0);
+    useEffect(() => { // nhiệm vụ: lắng nghe sự thay đổi của state và hành động
+        getProductsData();
+    }, []); // componentDidmount -> chỉ chạy 1 lần duy nhất sau khi build xong giao diện lần đầu
+    useEffect(() => {
+        console.log("x=" + x);
+    }, [x]); // lắng nghe sự thay đổi của x --- trigger
+    useEffect(() => {
+        console.log("y=" + y);
+    }, [y]);
+    const changeX = () => { setX(x + 1) }
+    const changeY = () => { setY(y + 1) }
 
 
     return (
@@ -69,8 +39,9 @@ const Product = () => {
                     </nav>
                 </div>
             </div>
-
-            <HomeProduct products={products}/>
+            <button className="btn btn-primary" onClick={changeX}>Change X: {x}</button>
+            <button className="btn btn-primary" onClick={changeY}>Change Y: {y}</button>
+            <HomeProduct products={products} />
             <HomeFirmVisit />
             <HomeTestimonial />
         </>

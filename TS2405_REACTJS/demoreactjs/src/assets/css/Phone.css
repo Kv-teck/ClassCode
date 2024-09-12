@@ -1,0 +1,87 @@
+/* Tổng quát */
+.PhoneInput {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0.8rem 0.6rem;
+    transition: border-color 0.2s ease-in-out;
+}
+
+.PhoneInput:hover {
+    border-color: #aaa;
+}
+
+/* Cờ quốc gia và icon chọn quốc gia */
+.PhoneInputCountry {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-right: 0.3em;
+    padding: 10px;
+}
+
+.PhoneInputCountrySelect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.PhoneInputCountryIcon {
+    width: 2.2em;
+    height: 1em;
+    margin-top: -10px;
+}
+
+
+/* Mũi tên chọn quốc gia */
+.PhoneInputCountrySelectArrow {
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    margin-left: 0.6em;
+    border-style: solid;
+    border-color: #888;
+    border-width: 0 1px 1px 0;
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+
+/* Trường nhập số điện thoại */
+.PhoneInputInput {
+    flex: 1;
+    min-width: 0;
+    padding-left: 0.5em;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    color: #333;
+    background-color: transparent;
+}
+
+/* Hiệu ứng khi focus */
+.PhoneInput:focus-within {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Input thông thường */
+input:not(.react-phone-number-input__input) {
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+}
+
+input:not(.react-phone-number-input__input):hover {
+    border-color: #bbb;
+}
