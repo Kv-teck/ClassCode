@@ -11,6 +11,8 @@ import Feature from './pages/Feature';
 import Testimonial from './pages/Testimonial';
 import ContactUs from './pages/ContactUs';
 import Fan from './pages/Fan';
+import Regsiter from './pages/Register';
+import Shopping from './pages/Shopping';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
           <Route path='/testimonial' Component={Testimonial} />
           <Route path='/contact-us' Component={ContactUs} />
           <Route path='/fan' Component={Fan} />
+          <Route path='/regsiter' Component={Regsiter} />
+          <Route path='/shopping' Component={Shopping} />
         </Routes>
       </main>
       <Footer />
