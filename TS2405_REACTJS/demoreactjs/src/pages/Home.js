@@ -8,8 +8,8 @@ import HomeProduct from "../components/UI/HomeProduct";
 import HomeTestimonial from "../components/UI/HomeTestimonial";
 
 const Home = () => {
-    const about_me = "CHafisacklew";
-    const desc_txt = "fasfjoawjfajsflkajw";
+    const about_me = "Best Organic Fruits And Vegetables";
+    const desc_txt = "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet";
     const fas = [
         "Tempor erat elitr rebum at clita",
         "Aliqu diam amet diam et eos",
@@ -55,25 +55,25 @@ const Home = () => {
         },
     ]
 
-    const [products,setProducts] = useState([]);
-    const getProductsData = async ()=>{
+    const [products, setProducts] = useState([]);
+    const getProductsData = async () => {
         const rs = await fetch("https://dummyjson.com/products?limit=12&sortBy=price&order=asc");
-        const data= await rs.json();
+        const data = await rs.json();
         setProducts(data.products);
     }
-    const [x,setX] = useState(0);
-    const [y,setY] = useState(0);
-    useEffect(()=>{ // nhiệm vụ: lắng nghe sự thay đổi của state và hành động
+    const [x, setX] = useState(0);
+    const [y, setY] = useState(0);
+    useEffect(() => { // nhiệm vụ: lắng nghe sự thay đổi của state và hành động
         getProductsData();
-    },[]); // componentDidmount -> chỉ chạy 1 lần duy nhất sau khi build xong giao diện lần đầu
-    useEffect(()=>{
-        console.log("x="+x);
-    },[x]); // lắng nghe sự thay đổi của x --- trigger
-    useEffect(()=>{
-        console.log("y="+y);
-    },[y]); 
-    const changeX = ()=>{ setX(x+1)}
-    const changeY = ()=>{ setY(y+1)}
+    }, []); // componentDidmount -> chỉ chạy 1 lần duy nhất sau khi build xong giao diện lần đầu
+    useEffect(() => {
+        console.log("x=" + x);
+    }, [x]); // lắng nghe sự thay đổi của x --- trigger
+    useEffect(() => {
+        console.log("y=" + y);
+    }, [y]);
+    const changeX = () => { setX(x + 1) }
+    const changeY = () => { setY(y + 1) }
 
     return (
         <>

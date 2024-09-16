@@ -51,7 +51,7 @@ const NavBar = () => {
                         <Link to="" className="btn-sm-square bg-white rounded-circle ms-3">
                             <small className="fa fa-user text-body"></small>
                         </Link>
-                        <Link to="/shopping" className="btn-sm-square bg-white rounded-circle ms-3" href="">
+                        <Link to="/shopping" className="btn-sm-square bg-white rounded-circle ms-3">
                             <small className="fa fa-shopping-bag text-body"></small>
                         </Link>
                     </div>

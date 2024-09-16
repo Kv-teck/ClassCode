@@ -16,10 +16,10 @@ const Product = ({product})=>{
                 </div>
                 <div className="d-flex border-top">
                     <small className="w-50 text-center border-end py-2">
-                        <Link to={"/product/"+product.id} className="text-body" href=""><i className="fa fa-eye text-primary me-2"></i>View detail</Link>
+                        <Link to={"/product/"+product.id} className="text-body"><i className="fa fa-eye text-primary me-2"></i>View detail</Link>
                     </small>
                     <small className="w-50 text-center py-2">
-                        <button className="text-body"><i className="fa fa-shopping-bag text-primary me-2"></i>Add to cart</button>
+                        <Link to={"/shopping/"+product.id} className="text-body"><i className="fa fa-shopping-bag text-primary me-2"></i>Add to cart</Link>
                     </small>
                 </div>
             </div>
