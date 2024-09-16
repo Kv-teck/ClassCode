@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 import Product from "../components/Products/Product";
 
 const ProductDetail = () => {
-    const { id } = useParams(); // Get the id from the URL
-    const [product, setProduct] = useState([]);
+    const { id } = useParams(); 
+    const [product, setProduct] = useState({});
 
     useEffect(() => {
         const fetchProductData = async () => {
