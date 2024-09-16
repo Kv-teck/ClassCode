@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Product from "../components/Products/Product";
+import { detailProduct } from "../services/apiService";
 
 const ProductDetail = () => {
-    const { id } = useParams(); 
-    const [product, setProduct] = useState({});
-
-    useEffect(() => {
-        const fetchProductData = async () => {
-                const response = await fetch(`https://dummyjson.com/products/${id}`);
-                const data = await response.json();
-                setProduct(data);
-        };
-
-        fetchProductData();
-    }, []);
+    const [product,setProduct] = useState({});
+    // id
+    const {id} = useParams();
+    // call api
+    const getDetail = async ()=>{
+        // const rs = await fetch("https://dummyjson.com/products/"+id);
+        // const data = await rs.json();
+        // setProduct(data);
+       const data = await detailProduct(id);
+       setProduct(data);
+    }
+    // useEffect get data
+    useEffect(()=>{
+        getDetail();
+    },[]);
 
     return (
         <>
