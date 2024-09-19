@@ -39,8 +39,6 @@ const Product = () => {
                     </nav>
                 </div>
             </div>
-            <button className="btn btn-primary" onClick={changeX}>Change X: {x}</button>
-            <button className="btn btn-primary" onClick={changeY}>Change Y: {y}</button>
             <HomeProduct products={products} />
             <HomeFirmVisit />
             <HomeTestimonial />

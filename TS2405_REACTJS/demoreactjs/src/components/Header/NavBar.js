@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import TopLink from "./TopLink";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import Context from "../../hooks/context/context";
 
 const NavBar = () => {
     const [categories,setCategories] = useState([]);
+    const {state,setState} = useContext(Context);
     const getCategories = async ()=>{
         const rs = await fetch("https://dummyjson.com/products/categories");
         const data = await rs.json();
@@ -29,7 +31,7 @@ const NavBar = () => {
                         <Link to="/product" className="nav-item nav-link">Products</Link>
                         {
                             categories.map((item, key) => {
-                                return <Link key={key} to={"/category/" + item.slug} className="nav-item nav-link">{item.name}</Link>
+                                return key>-1?null: <Link key={key} to={"/category/" + item.slug} className="nav-item nav-link">{item.name}</Link>
                             })
                         }
                         <div className="nav-item dropdown">
@@ -52,7 +54,7 @@ const NavBar = () => {
                             <small className="fa fa-user text-body"></small>
                         </Link>
                         <Link to="/shopping" className="btn-sm-square bg-white rounded-circle ms-3">
-                            <small className="fa fa-shopping-bag text-body"></small>
+                            <small className="fa fa-shopping-bag text-body">{state.cart.length}</small>
                         </Link>
                     </div>
                 </div>
