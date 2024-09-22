@@ -109,7 +109,7 @@ const Shopping = () => {
                                         <PhoneInput
                                             international
                                             countryCallingCodeEditable={false}
-                                            defaultCountry="RU"
+                                            defaultCountry="VN"
                                             value={value}
                                             onChange={setValue}
                                         />
