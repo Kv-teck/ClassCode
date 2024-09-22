@@ -125,30 +125,32 @@ const Shopping = () => {
                         </Formik>
                     </Col>
                     <Col>
-                        <div>
-                            <h2 className="text-center mb-4">Your Cart ({state.cart.length} items)</h2>
+                        <div className="cart-container">
+                            <h2 className="cart-header text-center">Your Cart ({state.cart.length} items)</h2>
 
                             {state.cart.map((product, index) => (
-                                <div className="row border-bottom py-3" key={index}>
+                                <div className="cart-item row border-bottom py-3" key={index}>
                                     <div className="col-2">
                                         <img src={product.thumbnail} alt={product.title} className="img-fluid" />
                                     </div>
                                     <div className="col-4">
-                                        <p className="fw-bold">{product.title}</p>
+                                        <p className="cart-item-title fw-bold">{product.title}</p>
                                         <a href="#" className="text-muted">Change</a>
                                     </div>
-                                    <div className="col-2 text-end fw-bold">${(product.price || 0).toFixed(2)}</div> {/* Đảm bảo không bị NaN */}
+                                    <div className="col-2 text-end cart-item-price fw-bold">
+                                        ${(product.price || 0).toFixed(2)} {/* Ensure no NaN */}
+                                    </div>
                                     <div className="col-2 d-flex justify-content-center align-items-center">
                                         <button
                                             className="btn btn-outline-secondary"
-                                            onClick={() => updateQuantity(index, product.quantity > 1 ? product.quantity - 1 : 1)} // Không giảm dưới 1
+                                            onClick={() => updateQuantity(index, product.quantity > 1 ? product.quantity - 1 : 1)}
                                         >
                                             -
                                         </button>
                                         <input
                                             type="number"
                                             className="form-control text-center mx-2"
-                                            value={product.quantity || 1}  /* Đảm bảo giá trị không bị null hoặc NaN */
+                                            value={product.quantity || 1}
                                             min="1"
                                             onChange={(e) => {
                                                 const newQuantity = parseInt(e.target.value);
@@ -160,13 +162,13 @@ const Shopping = () => {
                                         />
                                         <button
                                             className="btn btn-outline-secondary"
-                                            onClick={() => updateQuantity(index, product.quantity + 1)} // Tăng số lượng sản phẩm
+                                            onClick={() => updateQuantity(index, product.quantity + 1)}
                                         >
                                             +
                                         </button>
                                     </div>
-                                    <div className="col-2 text-end fw-bold">
-                                        ${((product.price || 0) * (product.quantity || 1)).toFixed(2)} {/* Đảm bảo luôn tính giá dựa trên số lượng >= 1 */}
+                                    <div className="col-2 text-end cart-item-total fw-bold">
+                                        ${((product.price || 0) * (product.quantity || 1)).toFixed(2)}
                                     </div>
                                     <div className="col-12 text-end mt-2">
                                         <button
@@ -193,7 +195,7 @@ const Shopping = () => {
                                             </tr>
                                             <tr>
                                                 <td className="text-end"><strong>Grand Total:</strong></td>
-                                                <td className="text-end"><strong>${calculateTotal() + 0}</strong></td>
+                                                <td className="text-end"><strong>${calculateTotal()}</strong></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -202,10 +204,10 @@ const Shopping = () => {
 
                             <div className="row mt-3">
                                 <div className="col-12 d-flex justify-content-between align-items-center">
-                                    <p className="text-success">
+                                    <p className="free-shipping-text text-success">
                                         Congrats, you're eligible for <strong>Free Shipping</strong>
                                     </p>
-                                    <button className="btn btn-dark btn-lg">Check out</button>
+                                    <button className="checkout-btn btn btn-dark btn-lg">Check out</button>
                                 </div>
                             </div>
                         </div>
