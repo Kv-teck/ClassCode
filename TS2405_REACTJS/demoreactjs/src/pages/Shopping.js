@@ -1,44 +1,54 @@
 import { Field, Formik } from 'formik';
 import React, { useContext, useState } from 'react';
-import { Form, Button, Row, Col, Container, FormGroup } from 'react-bootstrap';
+import { Form, Button, Row, Col, Container, FormGroup, Badge, InputGroup, Table } from 'react-bootstrap';
 import PhoneInput from 'react-phone-number-input';
 import '../assets/css/Phone.css';
 import Context from '../hooks/context/context';
-import { ACTION } from '../hooks/context/reducer'; // import constant actions
+import { Link } from 'react-router-dom';
+// import { ACTION } from '../hooks/context/reducer'; // import constant actions
 
 const Shopping = () => {
     const [value, setValue] = useState('');
-    const { state, dispatch } = useContext(Context); // Ensure state and dispatch are correctly pulled from Context
-
-    const initialValues = {
-        email: '',
-        firstName: '',
-        lastName: '',
-    };
-
-    const handleSubmit = (values) => {
-        console.log('Form submitted:', values, state.cart);
-        // You can handle the form submission, for example, by sending it to an API
-    };
-
-    // Hàm xử lý khi số lượng thay đổi
-    const updateQuantity = (index, quantity) => {
-        const newCart = state.cart.map((product, i) =>
-            i === index ? { ...product, quantity: Math.max(1, quantity) } : product
-        );
-        dispatch({ type: ACTION.UPDATE_CART, payload: newCart });
-    };
-
-    // Hàm xóa sản phẩm
-    const removeProduct = (index) => {
-        const newCart = state.cart.filter((_, i) => i !== index);
-        dispatch({ type: ACTION.UPDATE_CART, payload: newCart });
-    };
-
-    // Tính tổng giá tiền
-    const calculateTotal = () => {
-        return state.cart.reduce((total, product) => total + product.price * product.quantity, 0);
-    };
+    // const {state,dispatch} = useContext(Context);
+    const cart = [];
+    // const cart = state.cart;
+    var total = 0;
+    const removeItem = (id) => {
+        var new_cart = [];
+        cart.map(item => {
+            if (item.id != id)
+                new_cart.push(item);
+        })
+        // dispatch({type: ACTION.UPDATE_CART,payload: new_cart});
+        // dispatch({type: ACTION.SHOW_LOADING});
+        // setTimeout(()=>{
+        //     dispatch({type: ACTION.HIDE_LOADING})
+        // },1000);
+    }
+    const incrementQty = (id) => {
+        // cart.map(item=>{
+        //     if(item.id == id)
+        //         item.buy_qty = item.buy_qty +1;
+        //     return item;
+        // })
+        // dispatch({type: ACTION.UPDATE_CART,payload: cart});
+        // dispatch({type: ACTION.SHOW_LOADING});
+        // setTimeout(()=>{
+        //     dispatch({type: ACTION.HIDE_LOADING})
+        // },1000);
+    }
+    const decrementQty = (id) => {
+        // cart.map(item=>{
+        //     if(item.id == id)
+        //         item.buy_qty = item.buy_qty > 1?item.buy_qty - 1: 1; 
+        //     return item;
+        // })
+        // dispatch({type: ACTION.UPDATE_CART,payload: cart});
+        // dispatch({type: ACTION.SHOW_LOADING});
+        // setTimeout(()=>{
+        //     dispatch({type: ACTION.HIDE_LOADING})
+        // },1000);
+    }
 
     return (
         <>
@@ -69,7 +79,7 @@ const Shopping = () => {
                 <Row>
                     <Col>
                         <h2 className="text-start">Customer Information</h2>
-                        <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+                        <Formik>
                             {({ handleSubmit }) => (
                                 <Form onSubmit={handleSubmit}>
                                     <Form.Group className="mb-3 text-start">
@@ -125,92 +135,52 @@ const Shopping = () => {
                         </Formik>
                     </Col>
                     <Col>
-                        <div className="cart-container">
-                            <h2 className="cart-header text-center">Your Cart ({state.cart.length} items)</h2>
+                        <div class="col-lg-12 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
+                            <Table striped bordered hover>
+                                <thead>
+                                    <th>Item</th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th>Total</th>
+                                </thead>
+                                <tbody>
+                                    {
+                                        cart.map((item, key) => {
+                                            total += item.price * item.buy_qty;
+                                            return <tr key={key}>
+                                                <td>
+                                                    <Row>
+                                                        <Col><img src={item.thumbnail} width={80} /></Col>
+                                                        <Col>{item.title}</Col>
+                                                    </Row>
 
-                            {state.cart.map((product, index) => (
-                                <div className="cart-item row border-bottom py-3" key={index}>
-                                    <div className="col-2">
-                                        <img src={product.thumbnail} alt={product.title} className="img-fluid" />
-                                    </div>
-                                    <div className="col-4">
-                                        <p className="cart-item-title fw-bold">{product.title}</p>
-                                        <a href="#" className="text-muted">Change</a>
-                                    </div>
-                                    <div className="col-2 text-end cart-item-price fw-bold">
-                                        ${(product.price || 0).toFixed(2)} {/* Ensure no NaN */}
-                                    </div>
-                                    <div className="col-2 d-flex justify-content-center align-items-center">
-                                        <button
-                                            className="btn btn-outline-secondary"
-                                            onClick={() => updateQuantity(index, product.quantity > 1 ? product.quantity - 1 : 1)}
-                                        >
-                                            -
-                                        </button>
-                                        <input
-                                            type="number"
-                                            className="form-control text-center mx-2"
-                                            value={product.quantity || 1}
-                                            min="1"
-                                            onChange={(e) => {
-                                                const newQuantity = parseInt(e.target.value);
-                                                if (!isNaN(newQuantity) && newQuantity >= 1) {
-                                                    updateQuantity(index, newQuantity);
-                                                }
-                                            }}
-                                            style={{ width: '60px' }}
-                                        />
-                                        <button
-                                            className="btn btn-outline-secondary"
-                                            onClick={() => updateQuantity(index, product.quantity + 1)}
-                                        >
-                                            +
-                                        </button>
-                                    </div>
-                                    <div className="col-2 text-end cart-item-total fw-bold">
-                                        ${((product.price || 0) * (product.quantity || 1)).toFixed(2)}
-                                    </div>
-                                    <div className="col-12 text-end mt-2">
-                                        <button
-                                            className="btn btn-danger btn-sm remove-item"
-                                            onClick={() => removeProduct(index)}
-                                        >
-                                            Remove
-                                        </button>
-                                    </div>
-                                </div>
-                            ))}
-
-                            <div className="row mt-4">
-                                <div className="col-12 d-flex justify-content-end">
-                                    <table className="table table-borderless w-50">
-                                        <tbody>
-                                            <tr>
-                                                <td className="text-end"><strong>Subtotal:</strong></td>
-                                                <td className="text-end">${calculateTotal()}</td>
+                                                </td>
+                                                <td>{item.price}</td>
+                                                <td>
+                                                    <InputGroup className="mb-3">
+                                                        <InputGroup.Text onClick={() => decrementQty(item.id)}>-</InputGroup.Text>
+                                                        <input style={{ width: 10 }} type="number" className="form-control" value={item.buy_qty} />
+                                                        <InputGroup.Text onClick={() => incrementQty(item.id)}>+</InputGroup.Text>
+                                                    </InputGroup>
+                                                </td>
+                                                <td>{(item.buy_qty * item.price).toFixed(2)} <Badge onClick={() => removeItem(item.id)} bg="dark">x</Badge></td>
                                             </tr>
-                                            <tr>
-                                                <td className="text-end"><strong>Sales Tax:</strong></td>
-                                                <td className="text-end">$0</td>
-                                            </tr>
-                                            <tr>
-                                                <td className="text-end"><strong>Grand Total:</strong></td>
-                                                <td className="text-end"><strong>${calculateTotal()}</strong></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div className="row mt-3">
-                                <div className="col-12 d-flex justify-content-between align-items-center">
-                                    <p className="free-shipping-text text-success">
-                                        Congrats, you're eligible for <strong>Free Shipping</strong>
-                                    </p>
-                                    <button className="checkout-btn btn btn-dark btn-lg">Check out</button>
-                                </div>
-                            </div>
+                                        })
+                                    }
+                                </tbody>
+                            </Table>
                         </div>
+                        <Col lg={8}></Col>
+                        <Col>
+                            <h4>Subtotal: ${total.toFixed(2)}</h4>
+                            <hr />
+                            <h4>Tax: ${(total * 0.1).toFixed(2)}</h4>
+                            <hr />
+                            <h4>Grand total: <span>${(total * 1.1).toFixed(2)}</span></h4>
+                            <div className="mt-3">
+                                <Link to="/checkout" className="btn btn-primary">Checkout</Link>
+                            </div>
+                        </Col>
                     </Col>
                 </Row>
             </Container>

@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 import TopLink from "./TopLink";
 import { useContext, useEffect, useState } from "react";
-import Context from "../../hooks/context/context";
+import { connect } from "react-redux";
+// import Context from "../../hooks/context/context";
 
-const NavBar = () => {
+const NavBar = (props) => {
     const [categories,setCategories] = useState([]);
-    const {state,setState} = useContext(Context);
+    // const {state,setState} = useContext(Context);
     const getCategories = async ()=>{
         const rs = await fetch("https://dummyjson.com/products/categories");
         const data = await rs.json();
@@ -54,7 +55,7 @@ const NavBar = () => {
                             <small className="fa fa-user text-body"></small>
                         </Link>
                         <Link to="/shopping" className="btn-sm-square bg-white rounded-circle ms-3">
-                            <small className="fa fa-shopping-bag text-body">{state.cart.length}</small>
+                            <small className="fa fa-shopping-bag text-body">{props.items.length}</small>
                         </Link>
                     </div>
                 </div>
@@ -63,4 +64,10 @@ const NavBar = () => {
     )
 }
 
-export default NavBar;
+const mapStateToProps = (state, ownProps) => {
+    return {
+        items: state.cart_reducers.items? state.cart_reducers.items:[]
+    }
+}
+
+export default connect(mapStateToProps,null)(NavBar);
