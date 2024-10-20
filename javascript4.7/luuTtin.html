@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Dashboard</title>
+    <link rel="stylesheet" href="css/luuTtin.css">
+</head>
+<body>
+    <div class="header">
+        <div class="profile">
+            <img src="img/weather.jpg" alt="Profile Picture" class="profile-pic">
+            <div class="profile-info">
+                <h2>Jaspreet Kaur Ahuja</h2>
+                <p>Orchids International School, Noida</p>
+            </div>
+        </div>
+        <div class="statistics">
+            <div class="stat">
+                <p id="total-students">0</p>
+                <span>Students</span>
+            </div>
+            <div class="stat">
+                <p>05</p>
+                <span>Subjects</span>
+            </div>
+            <div class="stat">
+                <p id="total-exams">0</p>
+                <span>Exams</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-bar">
+        <input type="text" id="student-name-filter" placeholder="Student's Name">
+        <select id="subject-filter">
+            <option value="">Select subject</option>
+            <option value="Science">Science</option>
+            <option value="Maths">Maths</option>
+            <option value="English Literature">English Literature</option>
+            <option value="English Grammar">English Grammar</option>
+            <option value="Environmental Studies">Environmental Studies</option>
+            <option value="Hindi">Hindi</option>
+        </select>
+        <input type="text" id="marks-filter" placeholder="Marks Scored">
+        <select id="exam-type-filter">
+            <option value="">Select exam type</option>
+            <option value="Class Exam">Class Exam</option>
+            <option value="Online Exam">Online Exam</option>
+            <option value="Missed Exam">Missed Exam</option>
+        </select>
+        <button class="add-btn" id="add-btn">Add Now</button>
+    </div>
+
+    <div class="nav">
+        <a href="#" class="active">All</a>
+        <a href="#">Class Exam</a>
+        <a href="#">Online Exam</a>
+        <a href="#">Missed Exam</a>
+    </div>
+
+    <div class="content">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th>Marks Scored</th>
+                    <th>Type of Exam</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Student rows will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal for Adding New Record -->
+    <div class="modal" id="add-modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Add New Record</h2>
+            <form id="add-form">
+                <input type="text" id="new-name" placeholder="Student Name" required>
+                <select id="new-subject" required>
+                    <option value="">Select subject</option>
+                    <option value="Science">Science</option>
+                    <option value="Maths">Maths</option>
+                    <option value="English Literature">English Literature</option>
+                    <option value="English Grammar">English Grammar</option>
+                    <option value="Environmental Studies">Environmental Studies</option>
+                    <option value="Hindi">Hindi</option>
+                </select>
+                <input type="number" id="new-marks" placeholder="Marks Scored" min="0" max="100" required>
+                <select id="new-exam-type" required>
+                    <option value="">Select exam type</option>
+                    <option value="Class Exam">Class Exam</option>
+                    <option value="Online Exam">Online Exam</option>
+                    <option value="Missed Exam">Missed Exam</option>
+                </select>
+                <button type="submit" class="submit-btn">Add Record</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/luuTtin.js"></script>
+</body>
+</html>

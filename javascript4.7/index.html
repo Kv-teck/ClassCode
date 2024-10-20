@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>1 câu lệnh (command) là yêu cầu máy tính thực hiện 1 công việc</h1>
+    <script type="text/javascript">
+        console.log("Hello World");
+        var x = 5; //khai báo 1 biến tên là x và có giá trị ban đầu là 5 
+        x = x + 5;
+        var y = 4;
+        console.log(x + y);
+        y = y + 2;
+        console.log(x + y);
+        // ý nghĩa của biến
+        // Viết liền nhau ko dấu ko khoảng cách
+        // Ko có kí tự đặc biệt như : ! # % @... ngoại trừ $
+        // Bắt đầu bằng chữ cái, không được bắt đầu bằng số: a1 thì được nhưng 1a thì không
+        // Ko dùng các từ khóa có sẵn của JS ( if, while, do,...)
+
+        // //Number
+        // var n = 3.14159;
+        // //String
+        // var s = "TechStack2405";
+        // var s1 = 'Welcome';
+        // var s2 = `you`;
+        // //Boolean
+        // var t = true;
+        // var f = false;
+        // //Null
+        // var nu = null;
+        // //Undefined - gặp khi chúng ta sử dụng tính toán với 1 biến đó khôg tồn tại
+        // var un = underfined;
+
+        //cacs biến có thể thay đổi kiểu dữ liệu được
+        //ví dụ biến n ở trên ( Number )
+        n = "Say Hi";
+
+        console.log(typeof n);
+
+        var x1 = 5;
+        var x2 = "4";
+        console.log(x1 + x2);
+
+        // number + number = number
+        // number + string = string (5 + "4" = "54")
+        // string + number = string ("4" + 5 = "45")
+        // string + string = string
+
+        // var x3 = "1234"
+        // //convert string to number
+        // x3 = parseInt(x3);
+        // console.log(x3 + x1);
+        // //convert number to string 
+        // x3 = "" + x3;
+        // console.log(x3);
+
+        // var x4 = "3.14159"
+        // var x5 = parseInt(x4);
+        // console.log(x5);
+        // var x6 = parseFloat(x4);
+        // console.log(x6);
+
+        // var inputNumber = prompt("Nhập vào trọng lượng của bạn");
+        //console.log(inputNumber);
+        //console.log(typeof inputNumber);
+        // inputNumber = parseFloat(inputNumber); // chỉ tính trong giới hạn yêu cầu
+        // if (inputNumber >= 30 && inputNumber <= 150) {
+        //     var f = inputNumber * 9.878;
+        //     console.log("Lực rơi xuống F = " + f);
+        //     console.log(`với trọng lượng là ${inputNumber}`)
+        // } else {
+        //     console.log("Bạn nhập giá trị không đúng yêu cầu")
+        // }
+
+        //     // Viết chương trình nhập vào 2 số là giá trị độ dài 2 cạnh hình chữ nhật
+        //    // tính chu vi và diện tích hình chữ nhật đó.
+
+        //    var input1 = prompt("Nhập chiều dài :");
+        //     var input2 = prompt("Nhập chiều rộng :");
+        //     input1 = parseFloat(input1);
+        //     input2 = parseFloat(input2);
+
+        //     var P =  2*(input1+input2);
+        //     var S =  input1*input2;
+        //     console.log("Chu vi hình chữ nhật "+P.toFixed(2));
+        //     console.log("Diện tích hình chữ nhật "+S.toFixed(2));
+
+        // var inputChieuDai = prompt("Nhập chiều dài");
+        // var inputChieuRong = prompt("Nhập chiều rộng");
+        // inputChieuDai = parseFloat(inputChieuDai);
+        // inputChieuRong = parseFloat(inputChieuRong);
+        // if (inputChieuDai <= 50 && inputChieuRong <= 100) {
+        //     var P = 2 * (inputChieuDai + inputChieuRong);
+        //     console.log("chu vi hình chữ nhật" + P);
+        // } else {
+        //     console.log("Bạn nhập giá trị không đúng yêu cầu")
+        // }
+
+        var r = Math.random(); //1 số thực ngẫu nhiên từ 0 --> 1
+        r = r + 100;
+        r = parseInt(r);
+        console.log(r);
+
+        //Lucky number
+        // Viết chương trình nhập vào 1 số trong khoảng 0 -->100 và số tiền muốn đặt cược 
+        // Sinh ra 1 số nguyên ngẫu từ 0 --> 100
+        //kiểm tra người chơi có trúng giải hay không
+        //in ra số tiền trúng hoặc lời chia buồn
+
+        // var soDuDoan = parseInt(prompt("Nhập số dự đoán của bạn (từ 0 đến 100):"));
+        // var soTienCuoc = parseFloat(prompt("Nhập số tiền bạn muốn đặt cược:"));
+        // var soMayMan = Math.floor(Math.random() * 101); // Math.floor để làm tròn xuống
+        // if (soDuDoan === soMayMan) {
+        //     var tienTrung = soTienCuoc * 10; // Nếu đoán đúng, nhận lại 10 lần số tiền cược
+        //     console.log("Chúc mừng! Bạn đã trúng số " + soMayMan + ". Bạn nhận được " + tienTrung.toFixed(2) + " đồng.");
+        // } else {
+        //     console.log("Rất tiếc! Số may mắn là " + soMayMan + ". Chúc bạn may mắn lần sau!");
+        // }
+
+        // var num1 = prompt("Nhập vào 1 số trong khoảng 1-100: ");
+        // var num2 = prompt("Nhập số tiền đặt cược: ");
+
+        // num1 = parseFloat(num1);
+        // num2 = parseFloat(num2);
+
+        // var num3 = Math.floor(Math.random() * 101);
+        // console.log("Con số may mắn là : " + num3);
+        // if (num1 == num3) {
+        //     console.log("chúc mừng bạn đã trúng giải! ");
+        //     console("Số tiền bạn nhận được là " + num3 * num2);
+        // } else {
+        //     console.log("Rất tiếc bạn đã sai số! ");
+        // }
+
+        //Một số kí hiệu toán học hay dùng
+        var st = 0;
+        st++; //st = st +1
+        st--; //st =st-1
+
+        st *= 5; // st = st * 5 (* phép nhân)
+        st /= 2; // st = st / 2 (/ phép chia)
+        st += 4; // st = st + 4
+        st -= 3; // st = st - 3 
+
+        var xs = 7;
+        var sd = xs % 4; // phép chia lấy dư ví dụ ở đây sd = 3
+        // toán tử --> operator
+
+        // viết chương trình nhập vào 3 số là độ dài 3 cạnh của tam giác
+        // tính chu vi và diện tích tam giác đó ( nếu đúng là tam giác)]
+        // gợi ý: tính diện tích tam giác bằng côg thức Heron
+
+        // var hoanthanh = false;
+        // while (hoanthanh != true) {
+        //     var num1 = prompt("nhập độ dài cạnh 1");
+        //     var num2 = prompt("nhập độ dài cạnh 2");
+        //     var num3 = prompt("nhập độ dài cạnh 3");
+
+        //     num1 = parseFloat(num1);
+        //     num2 = parseFloat(num2);
+        //     num3 = parseFloat(num3);
+
+        //     var p = (num1 + num2 + num3) / 2;
+        //     var S = Math.sqrt(p * (p - num1) * (p - num2) * (p - num3));
+
+        //     if (num1 + num2 > num3 && num1 + num3 > num2 && num2 + num3 > num1) {
+        //         alert(`Chu vi hình chữ nhật là: ${p} Diện tích hình chữ nhật là: ${S}`);
+        //         hoanthanh = true;
+        //     } else {
+        //         alert("Đây không phải là Tam Giác!");
+        //         // hoanthanh = false;
+        //         var check = confirm("Bạn có muốn nhập lại hay không?");
+        //         if(check == true){
+        //             hoanthanh = false;
+        //         }else{
+        //             hoanthanh = true;
+        //         }
+        //     }
+        // }
+        // alert("Kết thúc chương trình!")
+
+        // Viết chương trình tính lãi suất ngân hàng
+        // Input: khách hàng nhập vào số tiền muốn gửi và số năm muốn gửi
+        // process: Lãi suất cố định 8%/năm -- lãi kép (lãi cộng dồn vào gốc)
+        // Output: tính tổng số tiền khách hàng thu về sau khi gửi tiết kiệm 
+
+        var sotiengui = parseFloat(prompt("Số tiền muốn gửi"));
+        var sonamgui = parseFloat(prompt("Số năm muốn gửi"));
+
+        var year = 0;
+        while (year < sonamgui) {
+            sotien = sotiengui + sotiengui * 8 / 100;
+            year++;
+        }
+        alert(`Số tiền thu được: ${sotien}`);
+
+        // viết chươg trình tính số năm cần gửi
+        // input kh nhập số tiền muốn gửi và số tiền ít nhất muốn có
+        // process: Lãi suất cố định 8%/năm -- lãi kép
+        // Output: tính số năm tối thiểu cần gửi để đạt được số tiền yêu cầu như trên
+
+        var sotiengui = parseFloat(prompt("Số tiền muốn gửi"));
+        var sonamgui = parseFloat(prompt("Số năm muốn gửi"));
+        
+        var year = 0;
+        while (year < sonamgui) {
+            sotien = sotiengui + sotiengui * 8 / 100;
+            sonamtoithieu = Math.log(sotien / sotiengui) / Math.log(1 + (8/100));
+            year++;
+        }
+        alert(`Số năm: ${sonamtoithieu}`);
+    </script>
+</body>
+
+</html>

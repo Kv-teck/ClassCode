@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò Chơi</title>
+</head>
+
+<body>
+    <script>
+        // tạo ngẫu nhiên 1 mảng có 23 giá trị 0->99
+        // yêu cầu người chơi nhập vào con số lựa chọn
+        // yêu cầu người chơi đặt cược số tiền
+        // kiểm tra và thông báo số tiền nhận được
+        //tỉ lệ: 23k -> 80k ( nếu trúng 1 số)
+
+        var rds = [];
+        while (rds.length < 23) {
+            var r = parseInt(Math.random() * 100);
+            rds.push(r);
+        }
+        var num = parseInt(prompt('Nhap so lua chon'));
+        var money = parseInt(prompt('Nhap so lua chon'));
+        var count = 0;
+        for (var n of rds) {
+            if (n == num) {
+                count++;
+            }
+        }
+        alert(`So tien nhan ${money * 80 / 23 * count}`);
+
+
+        //mở rộng: người chơi mua 5 số khác nhau -> kiểm tra giải 1 lần
+
+
+        // // Bước 1: Tạo mảng ngẫu nhiên từ 0 đến 99 có 23 phần tử
+        // var array = [];
+        // for (var i = 0; i < 23; i++) {
+        //     var randomNumber = Math.floor(Math.random() * 100); // Sinh số ngẫu nhiên từ 0 đến 99
+        //     array.push(randomNumber);
+        // }
+
+        // // Bước 2: Yêu cầu người chơi nhập số dự đoán
+        // var guess = parseInt(prompt('Nhập số bạn dự đoán (từ 0 đến 99):'));
+
+        // // Bước 3: Yêu cầu người chơi đặt cược số tiền
+        // var money = parseInt(prompt('Nhập số tiền bạn muốn đặt cược:'));
+
+        // // Bước 4: Kiểm tra số dự đoán và tính toán số tiền nhận được
+        // var winnings = 0;
+        // if (array.includes(guess)) {
+        //     // Nếu số dự đoán có trong mảng, tính toán số tiền theo tỉ lệ 23k đến 80k
+        //     winnings = money * 80 / 23;
+        // }
+
+        // // Bước 5: Thông báo số tiền nhận được
+        // if (winnings > 0) {
+        //     console.log('Chúc mừng bạn đã trúng số!');
+        //     console.log('Số tiền bạn nhận được là:', winnings.toFixed(2), 'VNĐ');
+        // } else {
+        //     console.log('Rất tiếc, bạn đã không trúng số.');
+        // }
+
+
+        // // Bước 1: Tạo mảng ngẫu nhiên từ 0 đến 99 có 23 phần tử
+        // var randomArray = [];
+        // for (var i = 0; i < 23; i++) {
+        //     var randomNumber = Math.floor(Math.random() * 100); // Sinh số ngẫu nhiên từ 0 đến 99
+        //     randomArray.push(randomNumber);
+        // }
+
+        // // Bước 2: Yêu cầu người chơi nhập vào 5 số khác nhau
+        // var playerNumbers = [];
+        // for (var i = 0; i < 5; i++) {
+        //     var playerGuess = parseInt(prompt('Nhập số bạn dự đoán (từ 0 đến 99):'));
+        //     // Kiểm tra xem số đã nhập có trong mảng playerNumbers chưa và phải là số từ 0 đến 99
+        //     if (!isNaN(playerGuess) && playerGuess >= 0 && playerGuess <= 99 && !playerNumbers.includes(playerGuess)) {
+        //         playerNumbers.push(playerGuess);
+        //     } else {
+        //         // Nếu không hợp lệ, yêu cầu người chơi nhập lại cho đến khi hợp lệ
+        //         console.log('Số nhập không hợp lệ hoặc đã nhập trước đó. Vui lòng nhập lại.');
+        //         i--; // Giảm biến i để nhập lại số
+        //     }
+        // }
+
+        // // Bước 3: Yêu cầu người chơi đặt cược số tiền
+        // var betAmount = parseInt(prompt('Nhập số tiền bạn muốn đặt cược:'));
+
+        // // Bước 4: Kiểm tra và tính toán số tiền nhận được
+        // var winnings = 0;
+        // var matchedNumbers = [];
+        // for (var i = 0; i < playerNumbers.length; i++) {
+        //     if (randomArray.includes(playerNumbers[i])) {
+        //         matchedNumbers.push(playerNumbers[i]);
+        //     }
+        // }
+
+        // if (matchedNumbers.length > 0) {
+        //     // Tính tỉ lệ số tiền nhận được
+        //     winnings = betAmount * (80 / matchedNumbers.length); // Tỉ lệ 80k cho mỗi số trúng
+        // }
+
+        // // Bước 5: Thông báo số tiền nhận được
+        // if (winnings > 0) {
+        //     console.log('Chúc mừng bạn đã trúng', matchedNumbers.length, 'số:', matchedNumbers);
+        //     console.log('Số tiền bạn nhận được là:', winnings.toFixed(2), 'VNĐ');
+        // } else {
+        //     console.log('Rất tiếc, bạn không trúng số nào.');
+        // }
+
+
+    </script>
+</body>
+
+</html>
